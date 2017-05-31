@@ -9,7 +9,6 @@ import java.util.UUID;
 
 public class Chore {
 
-
     private UUID mId;
     private String mTitle;
     private Date mDate;
