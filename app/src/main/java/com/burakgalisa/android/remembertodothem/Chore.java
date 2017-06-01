@@ -14,7 +14,6 @@ public class Chore {
     private Date mDate;
     private boolean mDone;
 
-
     public Chore(){
         mId = UUID.randomUUID();
         mDate = new Date();
