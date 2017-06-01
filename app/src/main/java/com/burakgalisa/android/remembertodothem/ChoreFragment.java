@@ -1,5 +1,7 @@
 package com.burakgalisa.android.remembertodothem;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -24,6 +27,8 @@ public class ChoreFragment extends Fragment {
 
     private static final String ARG_CHORE_ID = "chore_id";
     private static final String DIALOG_DATE = "DialogDate";
+
+    private static final int REQUEST_DATE = 0;
 
     private Chore mChore;
     private EditText mTitleField;
@@ -73,13 +78,14 @@ public class ChoreFragment extends Fragment {
 
 
         mDateButton = (Button) v.findViewById(R.id.chore_date);
-        mDateButton.setText(mChore.getDate().toString());
+        updateDate();
         mDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager manager = getFragmentManager();
                 DatePickerFragment dialog = DatePickerFragment
                         .newInstance(mChore.getDate());
+                dialog.setTargetFragment(ChoreFragment.this, REQUEST_DATE);
                 dialog.show(manager, DIALOG_DATE);
 
             }
@@ -96,5 +102,22 @@ public class ChoreFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK){
+            return;
+        }
+        if (requestCode == REQUEST_DATE){
+            Date date = (Date) data
+                    .getSerializableExtra(DatePickerFragment.EXTRA_DATE);
+            mChore.setDate(date);
+            updateDate();
+        }
+    }
+
+    private void updateDate() {
+        mDateButton.setText(mChore.getDate().toString());
     }
 }

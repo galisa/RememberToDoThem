@@ -27,4 +27,6 @@ public class ChoreActivity extends SingleFragmentActivity {
                 .getSerializableExtra(EXTRA_CHORE_ID);
         return ChoreFragment.newInstance(choreId);
     }
+
+
 }
