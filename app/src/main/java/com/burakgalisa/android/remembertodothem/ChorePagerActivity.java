@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.UUID;
 /**
  * Created by Burak on 22.5.2017.
  */
-public class ChorePagerActivity extends FragmentActivity{
+public class ChorePagerActivity extends AppCompatActivity{
 
     private static final String EXTRA_CHORE_ID =
             "com.burakgalisa.android.remembertodothem.chore_id";
