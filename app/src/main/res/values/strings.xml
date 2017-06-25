@@ -4,6 +4,10 @@
     <string name="new_chore">New Chore</string>
     <string name="show_subtitle">Show Subtitle</string>
     <string name="hide_subtitle">Hide Subtitle</string>
-    <string name="subtitle_format">%1$s chores</string>
+    <string name="subtitle_format">%1$d chores</string>
+    <plurals name="subtitle_plural">
+        <item quantity="one">%1$s chore</item>
+        <item quantity="other">%1$s chores</item>
+    </plurals>
 
 </resources>

@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/chore_recycler_view"/>
+    android:orientation="vertical"
 
+    >
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/chore_recycler_view"/>
+
+    <LinearLayout
+        android:id="@+id/fragment_chore_list_first_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add your first chore"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:textSize="32sp"/>
+
+    <Button
+        android:id="@+id/fragment_chore_list_first_chore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add"
+        android:background="#4caf50"
+        android:textColor="#ffffff"/>
+    </LinearLayout>
+
+</LinearLayout>
